@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "749218874192",
+    "firebase_url": "https://jumana18-84dfc.firebaseio.com",
+    "project_id": "jumana18-84dfc",
+    "storage_bucket": "jumana18-84dfc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:749218874192:android:dc3ec62da84b1667452255",
+        "android_client_info": {
+          "package_name": "com.asslan.jumana.jumanataskmanger"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "749218874192-oe24sn9vg3vmjimj4uipkamfjkgcfifi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.asslan.jumana.jumanataskmanger",
+            "certificate_hash": "8d4e87598d212bdb282d05faa7766dc9c486dbdf"
+          }
+        },
+        {
+          "client_id": "749218874192-of9ura0ai4mjkdmoma27b25iljjdgqr2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA2NsmhCFizGs_Bvs4GBncdOMhP5ezQbU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "749218874192-of9ura0ai4mjkdmoma27b25iljjdgqr2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
