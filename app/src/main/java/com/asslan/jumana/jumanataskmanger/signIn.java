@@ -1,11 +1,16 @@
 package com.asslan.jumana.jumanataskmanger;
 
+import android.content.Intent;
+import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class signIn extends AppCompatActivity {
@@ -61,10 +66,6 @@ public class signIn extends AppCompatActivity {
 
                 }
 
-
-
-
-
                 //singIn(email,passw)
 
             }
@@ -82,10 +83,25 @@ public class signIn extends AppCompatActivity {
         return m.matches();
     }
 
-    private void signIn(String email, String passw)
+    private void signIn(String email, String pass)
     {
         FirebaseAuth auth=FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email.passw);
+        auth.signInWithEmailAndPassword(email.pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful())
+                {
+                    //todo go to ,main screen(all task activity)
+                    Intent i=new Intent(getApplicationContext())
+
+                }
+                else
+                    {
+                        emsign.setError("email or passwrod is wrong");
+
+                }
+            }
+        });
     }
 
 }
