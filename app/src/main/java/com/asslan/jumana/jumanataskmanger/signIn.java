@@ -86,13 +86,14 @@ public class signIn extends AppCompatActivity {
     private void signIn(String email, String pass)
     {
         FirebaseAuth auth=FirebaseAuth.getInstance();
-        auth.signInWithEmailAndPassword(email.pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+        auth.signInWithEmailAndPassword(email,pass).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
                 if (task.isSuccessful())
                 {
                     //todo go to ,main screen(all task activity)
-                    Intent i=new Intent(getApplicationContext())
+                    Intent i=new Intent(getApplicationContext(),TempAllTaskActivity.class);
+                    startActivity(i);
 
                 }
                 else

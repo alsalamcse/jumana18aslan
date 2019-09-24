@@ -26,5 +26,8 @@ public class signup extends AppCompatActivity
         phone=findViewById(R.id.phone);
         save1=findViewById(R.id.save1);
 
+
+
+
     }
 }
