@@ -30,6 +30,13 @@ public class signIn extends AppCompatActivity {
 
 
         singIn1.setOnClickListener(new View.OnClickListener() {
+            Intent i = new Intent(getApplicationContext(), signup.class);
+
+            startActivity(i);
+        }
+    });
+
+
             @Override
             public void onClick(View v) {
                 dataHandler();
