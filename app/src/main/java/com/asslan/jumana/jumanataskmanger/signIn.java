@@ -23,24 +23,30 @@ public class signIn extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        emsign=findViewById(R.id.emSign);
-        pssign=findViewById(R.id.psSign);
-        singIn1=findViewById(R.id.signIn1);
-        signUp1=findViewById(R.id.signUp1);
+        emsign = findViewById(R.id.emSign);
+        pssign = findViewById(R.id.psSign);
+        singIn1 = findViewById(R.id.signIn1);
+        signUp1 = findViewById(R.id.signUp1);
 
+
+        signUp1.setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), signup.class);
+
+                startActivity(intent);
+
+            }
+        });
 
         singIn1.setOnClickListener(new View.OnClickListener() {
-            Intent i = new Intent(getApplicationContext(), signup.class);
-
-            startActivity(i);
-        }
-    });
-
-
             @Override
             public void onClick(View v) {
                 dataHandler();
             }
+        });
+    }
 
             private void dataHandler() {
                 String email=emsign.getText().toString();
@@ -69,19 +75,19 @@ public class signIn extends AppCompatActivity {
 
                 if(isok)
                 {
+                    signIn(email,password);
 
 
                 }
-
-                //singIn(email,passw)
-
             }
-        });
 
 
 
 
-    }
+
+
+
+
     public boolean isValidEmailAddress(String email)
     {
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
