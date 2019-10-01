@@ -1,5 +1,6 @@
 package com.asslan.jumana.jumanataskmanger;
 
+import android.provider.ContactsContract;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -8,6 +9,8 @@ import android.widget.EditText;
 import android.widget.SeekBar;
 
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class addTask extends AppCompatActivity {
     private EditText etTitle,etSub;
@@ -50,13 +53,21 @@ public class addTask extends AppCompatActivity {
                 }
                 if (isok)
                 {
-                    createTask(Title,Subject,priority);
+                    Task t=new Task();
+                    t.setTitle(Title);
+                    createTask(t);
 
                 }
             }
 
-            private void createTask(String title, String subject, int priority)
-            {
+            //save data base
+            private void createTask(Task t) {
+                //1
+                FirebaseDatabase database=FirebaseDatabase.getInstance();
+                //2
+                DatabaseReference reference=database.getReference();
+                String key = reference.child("tasks").push().getKey();
+                reference.child("tasks").child(key).setValue(t);
 
 
 
