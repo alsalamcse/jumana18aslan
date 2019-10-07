@@ -21,6 +21,7 @@ public class wellcome extends AppCompatActivity
                 try {
                     sleep(3*1000);
                     Intent i=new Intent(getApplicationContext(),signIn.class);
+                    startActivity(i);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }

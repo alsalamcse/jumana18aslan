@@ -17,7 +17,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-public class addTask extends AppCompatActivity implements OnCanceledListener {
+public class addTask extends AppCompatActivity {
     private EditText etTitle,etSub;
     private SeekBar sk1;
     private Button save2;
@@ -28,17 +28,15 @@ public class addTask extends AppCompatActivity implements OnCanceledListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_task);
 
-        etTitle=findViewById(R.id.etTitle);
-        etSub=findViewById(R.id.etSub);
-        sk1=findViewById(R.id.sk1);
-        save2=findViewById(R.id.save1);
+        etTitle = findViewById(R.id.etTitle);
+        etSub = findViewById(R.id.etSub);
+        sk1 = findViewById(R.id.sk1);
+        save2 = findViewById(R.id.save1);
 
 
-        save2.setOnClickListener(new View.OnClickListener()
-        {
+        save2.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View v)
-            {
+            public void onClick(View v) {
                 dataHandler();
             }
 
@@ -63,34 +61,29 @@ public class addTask extends AppCompatActivity implements OnCanceledListener {
 
                 }
             }
+        });
+    }
 
-            //save data base
-            private void createTask(Task t) {
-                //1
-                FirebaseDatabase database = FirebaseDatabase.getInstance();
-                //2
-                DatabaseReference reference = database.getReference();
-                String key = reference.child("tasks").push().getKey();
-                reference.child("tasks").child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
-                    @Override
-                    public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
-                        if (task.isSuccessful()) {
-                            Toast.makeText(addTask.this, "Add Successful", Toast.LENGTH_SHORT).show();
-                            finish();
-
-                        }
-                        else
-                            {
-
-
-                            Toast.makeText(addTask.this, "Add Failed" + task.getException().getMessage(), Toast.LENGTH_SHORT).show();
-                            task.getException().printStackTrace();
-                        }
-                    }
-
-
-                });
-
-
+    //save data base
+    private void createTask(Task t) {
+        //1
+        FirebaseDatabase database = FirebaseDatabase.getInstance();
+        //2
+        DatabaseReference reference = database.getReference();
+        String key = reference.child("tasks").push().getKey();
+        reference.child("tasks").child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
+            @Override
+            public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
+                if (task.isSuccessful())
+                {
+                    Toast.makeText(addTask.this, "Add ", Toast.LENGTH_SHORT).show();
+                }
+                else
+                {
+                    Toast.makeText(addTask.this, "Add Failed"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                }
             }
-        }
+        });
+    }
+
+}
