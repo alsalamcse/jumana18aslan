@@ -26,7 +26,7 @@ public class signup extends AppCompatActivity {
 
         fname = findViewById(R.id.fName);
         lname = findViewById(R.id.lName);
-        em2 = findViewById(R.id.emSign);
+        em2 = findViewById(R.id.em2);
         pass2 = findViewById(R.id.pass2);
         rewarte = findViewById(R.id.rewarte);
         phone = findViewById(R.id.phone);
@@ -81,7 +81,8 @@ public class signup extends AppCompatActivity {
                     finish();
                 }
                 else {
-                    em2.setError("Sign up failed");
+                    em2.setError("Sign up failed"+ task.getException().getMessage());
+                    task.getException().printStackTrace();
 
                 }
             }
