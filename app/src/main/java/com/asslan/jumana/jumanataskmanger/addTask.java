@@ -31,7 +31,7 @@ public class addTask extends AppCompatActivity {
         etTitle = findViewById(R.id.etTitle);
         etSub = findViewById(R.id.etSub);
         sk1 = findViewById(R.id.sk1);
-        save2 = findViewById(R.id.save1);
+        save2 = findViewById(R.id.save2);
 
 
         save2.setOnClickListener(new View.OnClickListener() {
