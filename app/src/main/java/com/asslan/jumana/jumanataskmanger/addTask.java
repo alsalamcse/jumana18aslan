@@ -35,6 +35,7 @@ public class addTask extends AppCompatActivity {
 
 
         save2.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 dataHandler();

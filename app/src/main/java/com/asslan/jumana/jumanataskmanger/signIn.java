@@ -43,6 +43,7 @@ public class signIn extends AppCompatActivity {
         singIn1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 dataHandler();
             }
         });
@@ -52,16 +53,7 @@ public class signIn extends AppCompatActivity {
                 String email=emsign.getText().toString();
                 String password=pssign.getText().toString();
                 boolean isok=true;
-//                if(email.length()<4)
-//                {
-//                    emsign.setError("Email length eror");
-//                   isok=false;
-//                }
-//                if(email.indexOf("@")<0 || email.indexOf(".")<0)
-//                {
-//                    emsign.setError("email wrong format");
-//                    isok=false;
-//                }
+//
                 if(isValidEmailAddress(email)==false)
                 {
                     emsign.setError("Invalid Emaill");
@@ -80,15 +72,7 @@ public class signIn extends AppCompatActivity {
 
                 }
             }
-
-
-
-
-
-
-
-
-    public boolean isValidEmailAddress(String email)
+            public boolean isValidEmailAddress(String email)
     {
         String ePattern = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@((\\[[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\.[0-9]{1,3}\\])|(([a-zA-Z\\-0-9]+\\.)+[a-zA-Z]{2,}))$";
         java.util.regex.Pattern p = java.util.regex.Pattern.compile(ePattern);
