@@ -68,11 +68,18 @@ public class addTask extends AppCompatActivity {
     //save data base
     private void createTask(Task t) {
         //1
+
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         //2
         DatabaseReference reference = database.getReference();
+        //to get the user id (or other details like email)
+        FirebaseAuth auth=FirebaseAuth.getInstance();
+        String uid = auth.getCurrentUser().getUid();
+        t.setOwner(uid);
+
+
         String key = reference.child("tasks").push().getKey();
-        reference.child("tasks").child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
+        reference.child("tasks").child(uid).child(key).setValue(t).addOnCompleteListener(addTask.this, new OnCompleteListener<Void>() {
             @Override
             public void onComplete(@NonNull com.google.android.gms.tasks.Task<Void> task) {
                 if (task.isSuccessful())

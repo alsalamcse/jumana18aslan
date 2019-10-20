@@ -6,6 +6,7 @@ public class Task
     private String title;
     private String sub;
     private String prio;
+    private String owner;
 
     public Task() {
 
@@ -45,7 +46,13 @@ public class Task
         this.prio = prio;
     }
 
+    public String getOwner() {
+        return owner;
+    }
 
+    public void setOwner(String owner) {
+        this.owner = owner;
+    }
 
     @Override
     public String toString() {
