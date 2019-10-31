@@ -7,7 +7,7 @@ import android.widget.SeekBar;
 
 public class setting extends AppCompatActivity {
     private CheckBox chbox;
-    private SeekBar sk2;
+    private SeekBar sk1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,7 +15,7 @@ public class setting extends AppCompatActivity {
         setContentView(R.layout.activity_setting);
 
         chbox=findViewById(R.id.chbox);
-        sk2=findViewById(R.id.sk1);
+        sk1=findViewById(R.id.sk1);
 
     }
 }
