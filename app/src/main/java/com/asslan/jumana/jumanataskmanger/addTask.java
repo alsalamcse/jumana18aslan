@@ -36,10 +36,13 @@ public class addTask extends AppCompatActivity {
 
         save2.setOnClickListener(new View.OnClickListener() {
 
+
             @Override
             public void onClick(View v) {
                 dataHandler();
             }
+        });
+    }
 
             private void dataHandler() {
                 boolean isok = true;
@@ -58,12 +61,14 @@ public class addTask extends AppCompatActivity {
                 if (isok) {
                     Task t = new Task();
                     t.setTitle(Title);
+                    t.setSub(Subject);
+
                     createTask(t);
 
                 }
             }
-        });
-    }
+
+
 
     //save data base
     private void createTask(Task t) {

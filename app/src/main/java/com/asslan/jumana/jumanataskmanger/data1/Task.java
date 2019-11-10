@@ -38,7 +38,7 @@ public class Task
         this.sub = sub;
     }
 
-    public int getPrio() {
+    public int getPrio(int priority) {
         return prio;
     }
 

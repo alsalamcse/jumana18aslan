@@ -35,7 +35,7 @@ public class TaskAdapter extends ArrayAdapter<Task>
         //connect item view to data source
         tvTitle.setText(myTask.getTitle());
         tvSubject.setText(myTask.getSub());
-        rbPrio.setRating(myTask.getPrio());
+        rbPrio.setRating(myTask.getPrio(priority));
         cbIsCompleted.setChecked(false);
 
         return vitem;
