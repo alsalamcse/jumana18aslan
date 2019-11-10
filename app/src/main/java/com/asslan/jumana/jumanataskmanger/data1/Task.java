@@ -5,7 +5,7 @@ public class Task
     private String key;
     private String title;
     private String sub;
-    private String prio;
+    private int prio;
     private String owner;
 
     public Task() {
@@ -38,11 +38,11 @@ public class Task
         this.sub = sub;
     }
 
-    public String getPrio() {
+    public int getPrio() {
         return prio;
     }
 
-    public void setPrio(String prio) {
+    public void setPrio(int prio) {
         this.prio = prio;
     }
 
