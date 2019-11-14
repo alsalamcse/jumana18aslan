@@ -8,11 +8,15 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
 
 import com.asslan.jumana.jumanataskmanger.R;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class TaskAdapter extends ArrayAdapter<Task>
 {
@@ -33,11 +37,26 @@ public class TaskAdapter extends ArrayAdapter<Task>
 
 
         //getting data source
-        Task myTask = getItem(position);
+        final Task myTask = getItem(position);
 
         //todo טיפול באירוע מחיקה
 
-        cbIsCompleted.setOnCheckedChangeListener();
+        cbIsCompleted.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                 if (isChecked)
+                 {
+                     //todo delete this item
+                     FirebaseUtils.getRefrence().child(myTask.getKey()).removeValue(new DatabaseReference.CompletionListener() {
+                         @Override
+                         public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
+                                          if (databaseError==null)
+                                          {}
+                         }
+                     });
+                 }
+            }
+        });
 
 
         //connect item view to data source
