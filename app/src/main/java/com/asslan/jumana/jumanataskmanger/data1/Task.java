@@ -5,7 +5,7 @@ public class Task
     private String key;
     private String title;
     private String sub;
-    private int prio;
+    private int priority;
     private String owner;
 
     public Task() {
@@ -38,12 +38,13 @@ public class Task
         this.sub = sub;
     }
 
-    public int getPrio(int priority) {
-        return prio;
+    public int getPriority() {
+        return priority;
     }
 
-    public void setPrio(int prio) {
-        this.prio = prio;
+    public void setPriority(int priority) {
+
+        this.priority = priority;
     }
 
     public String getOwner() {
@@ -60,9 +61,12 @@ public class Task
                 "key='" + key + '\'' +
                 ", title='" + title + '\'' +
                 ", sub='" + sub + '\'' +
-                ", prio='" + prio + '\'' +
+                ", prio='" + priority + '\'' +
                 '}';
     }
+
+
+
 }
 
 

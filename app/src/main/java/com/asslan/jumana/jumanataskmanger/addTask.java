@@ -62,6 +62,7 @@ public class addTask extends AppCompatActivity {
                     Task t = new Task();
                     t.setTitle(Title);
                     t.setSub(Subject);
+                    t.setPriority(priority);
 
                     createTask(t);
 
@@ -90,10 +91,12 @@ public class addTask extends AppCompatActivity {
                 if (task.isSuccessful())
                 {
                     Toast.makeText(addTask.this, "Add ", Toast.LENGTH_SHORT).show();
+                    finish();
                 }
                 else
                 {
                     Toast.makeText(addTask.this, "Add Failed"+ task.getException().getMessage(), Toast.LENGTH_SHORT).show();
+                    task.getException(). printStackTrace();
                 }
             }
         });

@@ -57,7 +57,7 @@ public class AllTasksFragment extends Fragment {
          String uid = auth.getUid();
         DatabaseReference reference = database.getReference();
 
-        reference.child("task").child(uid).addValueEventListener(new ValueEventListener() {
+        reference.child("tasks").child(uid).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) 
             {
