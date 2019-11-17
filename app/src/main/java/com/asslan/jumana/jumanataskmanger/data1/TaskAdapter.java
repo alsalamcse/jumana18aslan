@@ -12,6 +12,7 @@ import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.asslan.jumana.jumanataskmanger.R;
 import com.google.firebase.database.DatabaseError;
@@ -51,7 +52,12 @@ public class TaskAdapter extends ArrayAdapter<Task>
                          @Override
                          public void onComplete(@Nullable DatabaseError databaseError, @NonNull DatabaseReference databaseReference) {
                                           if (databaseError==null)
-                                          {}
+                                          {
+                                              Toast.makeText(getContext(), "deleted", Toast.LENGTH_SHORT).show();
+                                          }
+                                          else {
+                                              Toast.makeText(getContext(), "not deleted", Toast.LENGTH_SHORT).show();
+                                          }
                          }
                      });
                  }
