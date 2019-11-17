@@ -56,7 +56,7 @@ public class TaskAdapter extends ArrayAdapter<Task>
                                               Toast.makeText(getContext(), "deleted", Toast.LENGTH_SHORT).show();
                                           }
                                           else {
-                                              Toast.makeText(getContext(), "not deleted", Toast.LENGTH_SHORT).show();
+                                              Toast.makeText(getContext(), "not deleted"+databaseError.getMessage(), Toast.LENGTH_SHORT).show();
                                           }
                          }
                      });
