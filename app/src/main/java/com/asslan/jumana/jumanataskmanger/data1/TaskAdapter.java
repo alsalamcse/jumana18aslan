@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.QuickContactBadge;
 import android.widget.RatingBar;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -33,7 +34,7 @@ public class TaskAdapter extends ArrayAdapter<Task>
         TextView tvSubject=vitem.findViewById(R.id.itmTvSubject);
         RatingBar rbPrio=vitem.findViewById(R.id.itmRatingPrio);
         CheckBox cbIsCompleted=vitem.findViewById(R.id.itmChbxIsCompleted);
-        ImageView ivInfo=vitem.findViewById(R.id.itmImgInfo);
+        ImageView itmImgInfo=vitem.findViewById(R.id.itmImgInfo);
 
 
 
@@ -64,6 +65,15 @@ public class TaskAdapter extends ArrayAdapter<Task>
             }
         });
 
+        itmImgInfo.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(getContext(),myTask.getTitle(), Toast.LENGTH_SHORT).show();
+            }
+        });
+
+
+
 
         //connect item view to data source
         tvTitle.setText(myTask.getTitle());
@@ -72,6 +82,9 @@ public class TaskAdapter extends ArrayAdapter<Task>
         cbIsCompleted.setChecked(false);
 
         return vitem;
+    }
+    public void ShowMenu(){
+
     }
 }
 
